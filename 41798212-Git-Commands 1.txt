@@ -1,0 +1,122 @@
+Git Commands Reference
+=================
+
+* git config --global user.name "yourname"
+      - Your name should be your full name
+ * git config --global user.email "emailaddress"
+* git config --global color.ui true
+gitk (optional branch name) - tool is used to view diffs , etc
+* git replay
+           - Is used for going backward and tracking the files with versions.
+** Add files to git and if you still changed the files , then it will not commit
+ and inform you it is modified.
+* git clone url folder-name
+                     - url get it from the tracker.nextbit.net with your particu
+lar project.
+                        - folder-name is local folder name to be created , but t
+his is optional
+                       - The above command will ask you for password
+* git checkout filename
+                 - To revert a local file
+* git reset filename
+                  - To revert it from add, kind of undoing the add
+** To Secure and restore passwords rather than giving it all the time while comm
+it or push use the below code once you have started the maching
+            - ssh-add -> enter the password
+
+* git branch
+* git branch -a
+             - To list all branches , remote and local branches
+* git checkout branchname-fullpath
+            -branchname-fullpath should be the remote branch path eg. origin/web
+ui-branch
+* git checkout -b branch_name
+           - Create a local branch
+* git log
+         - To tell you the log of commits
+* git log --name-status
+          - To check the log with filename
+* git log --stat
+           - Display log with filename, and number of lines modified/added.
+* git log -p
+         - Display log with modified lines list
+** Source code is only one and while switching to the branches it will change th
+e code
+* git status
+        - To check locally modified, added, committed files status
+* git add filename
+              - First step to push a file to server is to add to local repositor
+y, and that is ready for commit
+* git commit -a
+          => To commit all the modified , added files.
+* git commit filename
+              - Commit the added file and give a modify / Add message or comment
+* git push
+Diff commands in git
+==============
+* git diff -cached | kompare -o -
+              - Will display the changes from the cached ( Modified but not adde
+d files)
+* git diff commit_id1 commit_id2 | kompare -o
+               - To compare with two revisions
+* git diff HEAD^ | kompare -o -
+              ^ resembles last commit and before commit, like this you can use m
+any ^ to track the revisions commit
+              eg - git diff HEAD^^^^^^^ | kompare -o -
+               rather than using like this you can use the blow
+* git diff HEAD~1 | kompare -o -
+* git diff HEAD~2 | kompare -o -
+* git diff branch1 branch2 | kompare -o -
+            => compare between two branches
+
+* git stash
+           => kind of storing the modified files in someplace , so that it will
+you to switch between branche . you can make lots of git stash. It will create a
+ list of stashes
+* git stash list
+               => display the list of stashes you have created. this refers with
+ commit id
+* git stash pop
+                  => to get back all the stashes.
+* git stash pop --index stashno
+                => stashno you will get it from git stash list. This command wil
+l get only particular stash no of modifications
+* git nerge branch_name
+          => Merget to any branch with the currently working branch.
+** Always create a branch while started fixing or created a new feature or anyth
+ing, and merge it to master.
+* git rm filename
+         => to remove a file , commit it and push it
+* git mv filename1 filename2
+          => The will move, rename the file
+PUSH to repository
+=============
+* git push origin master                                    => Orign is the repo
+sitory name, master is your branch name
+PULL from repository
+==============
+* git pull
+* git fetch branchname
+                 => This will store in some directory and after this you should
+ merge it
+* git merge
+TAG
+===
+Tag a particular commit
+* git tag v1.0 commit_id
+                 => v1.0 can be anything, so if you checkout for this tag it wil
+l get you all the commits upto the commit_id given.
+* git tag
+                => shows a list of tags
+** After tagging you need to push it to server
+* git push origin (tag-name) v1.0
+
+* git branch -D branchname .
+          => Delete a branchname locally
+* .gitignore
+          => this is a file which will be created
+and you specify the filename, or *.type of files to be ignored. So that it will
+ not be coming in the status.
+You can create this file anywhere and which will be applicable to that particula
+r file only.
+
